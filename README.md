@@ -618,8 +618,8 @@ The project is designed to help answer questions such as:
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd <your-repository-folder>
+git clone <https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities.git>
+cd <https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities.git>
 ```
 
 ### 2. Install required libraries
