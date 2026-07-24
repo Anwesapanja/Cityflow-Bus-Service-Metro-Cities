@@ -48,6 +48,7 @@ The dataset contains **3,258 passenger-trip records** across **36 columns**, rep
 * Hyderabad
 * Chennai
 * Delhi NCR
+* Kolkata
 
 ### Dataset Characteristics
 
