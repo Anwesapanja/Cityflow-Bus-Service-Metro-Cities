@@ -950,22 +950,6 @@ Run the notebooks in the following order:
 
 ---
 
-# 📚 Project Resources
-
-## 📊 Dataset / Google Spreadsheet
-
-https://docs.google.com/spreadsheets/d/1lvvWRxPfKCT4T3xvIqXpyCBdnCnL86It0-TIU80xqVE/edit?gid=1723667175#gid=1723667175
-
-## 📓 Kaggle Notebook
-
-https://www.kaggle.com/code/anwesapanja/cityflo-data-analysis
-
-## 💻 GitHub Repository
-
-https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities
-
----
-
 # 📌 Conclusion
 
 The **CityFlo Bus Service – Metro Cities Data Analysis** project demonstrates a complete end-to-end data analytics workflow, starting from raw data and ending with an interactive Business Intelligence dashboard.
