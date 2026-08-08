@@ -1,1015 +1,1026 @@
 # 🚌 CityFlo Bus Service – Metro Cities Data Analysis
 
-An end-to-end **Data Analytics and Business Intelligence project** that analyses CityFlo bus-service data across major metro cities to understand operational performance, revenue, customer behaviour, route efficiency, delays, occupancy, and service quality.
+![CityFlo](https://img.shields.io/badge/Project-CityFlo%20Bus%20Service-003B5C)
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 
 ---
 
-## 📌 Table of Contents
+## 📌 Project Overview
 
-- [Project Overview](#-project-overview)
-- [Business Objective](#-business-objective)
-- [Business Questions](#-business-questions)
-- [Dataset](#-dataset)
-- [Project Workflow](#-project-workflow)
-- [Data Inspection](#-data-inspection)
-- [Data Cleaning and Preparation](#-data-cleaning-and-preparation)
-- [Feature Engineering](#-feature-engineering)
-- [Exploratory Data Analysis](#-exploratory-data-analysis)
-- [Statistical Analysis](#-statistical-analysis)
-- [Power BI Dashboard](#-power-bi-dashboard)
-- [Dashboard 1 – City and Revenue Overview](#dashboard-1--city-and-revenue-overview)
-- [Dashboard 2 – Operations and Capacity](#dashboard-2--operations-and-capacity)
-- [Dashboard 3 – Delay, Rating and Route Performance](#dashboard-3--delay-rating-and-route-performance)
-- [Dashboard 4 – Customer and Booking Behaviour](#dashboard-4--customer-and-booking-behaviour)
-- [Key Business Insights](#-key-business-insights)
-- [Business Recommendations](#-business-recommendations)
-- [Technologies Used](#-technologies-used)
-- [Repository Structure](#-repository-structure)
-- [How to Run the Project](#-how-to-run-the-project)
-- [Project Resources](#-project-resources)
-- [Future Scope](#-future-scope)
-- [Limitations](#-limitations)
-- [Conclusion](#-conclusion)
-- [Author](#-author)
+**CityFlo Bus Service – Metro Cities Data Analysis** is an end-to-end **Data Analytics and Business Intelligence project** focused on analyzing bus service operations, customer behavior, revenue performance, trip performance, delays, occupancy, subscriptions, payment methods, and booking channels across major Indian metro cities.
+
+The project transforms raw trip-level data into meaningful business insights using **Python, Pandas, NumPy, Matplotlib, Seaborn, SciPy, and Power BI**.
+
+The main objective of this project is to understand:
+
+- Bus service performance
+- Revenue generation
+- Customer behavior
+- Trip status
+- Delay patterns
+- Occupancy levels
+- Route performance
+- Customer satisfaction
+- Subscription behavior
+- Payment preferences
+- Booking channels
+- Weather impact on operations
 
 ---
 
-# 📌 Project Overview
-
-The **CityFlo Bus Service – Metro Cities Data Analysis** project is an end-to-end Data Analytics and Business Intelligence project developed to understand the performance of a bus transportation service across major Indian metro cities.
-
-The project analyses transportation data from multiple perspectives, including:
-
-- 🚌 Trip performance
-- 🏙️ City-wise performance
-- 💰 Revenue generation
-- 🛣️ Route performance
-- ⏱️ Trip delays
-- 🪑 Bus occupancy
-- 🌦️ Weather impact
-- 👥 Customer demographics
-- ⭐ Customer satisfaction
-- 💳 Payment behaviour
-- 🎫 Subscription behaviour
-- 📱 Booking channels
-- 📢 Customer complaints
-
-The project follows a complete analytics lifecycle:
-
-```text
-Raw Data
-   ↓
-Data Inspection
-   ↓
-Data Cleaning
-   ↓
-Data Preparation
-   ↓
-Feature Engineering
-   ↓
-Exploratory Data Analysis
-   ↓
-Statistical Analysis
-   ↓
-Power BI Dashboard
-   ↓
-Business Insights
-   ↓
-Business Recommendations
+# 🎯 Business Objectives
 
-Note: The dataset used in this project is synthetic and is intended for educational, analytical, and portfolio purposes. It does not represent actual CityFlo operational data.
+The project is designed to answer important business questions such as:
 
-🎯 Business Objective
+- Which cities generate the highest revenue?
+- Which cities have the highest number of trips?
+- Which cities experience the highest average delays?
+- What percentage of trips are completed, delayed, cancelled, or no-show?
+- Does weather affect bus delays?
+- Which bus types have the highest occupancy?
+- How does route distance affect revenue?
+- How does customer rating vary over time?
+- Which customer age groups are the most active?
+- Which subscription types are most popular?
+- Which payment modes are most frequently used?
+- How many trips have complaints?
+- Which booking channels generate the most revenue?
+- Which routes have higher occupancy?
+- How does revenue change month by month?
 
-The primary objective of this project is to use data-driven analysis to understand the performance of a bus transportation service and identify opportunities for improving:
+---
 
-Operational efficiency
-Revenue generation
-Fleet utilisation
-Customer satisfaction
-Route performance
-Booking experience
-Capacity planning
+# 🛠️ Technology Stack
 
-The project combines Python-based data analysis with Power BI visualisation to convert raw data into meaningful business insights.
+| Technology / Tool | Purpose |
+|---|---|
+| Python | Data analysis and preprocessing |
+| Pandas | Data manipulation and cleaning |
+| NumPy | Numerical computation |
+| Matplotlib | Data visualization |
+| Seaborn | Statistical visualization |
+| SciPy | Statistical analysis and hypothesis testing |
+| Jupyter Notebook | Data analysis environment |
+| Kaggle | Notebook and analysis |
+| Power BI | Interactive dashboard development |
+| GitHub | Version control and project documentation |
 
-❓ Business Questions
+---
 
-The project attempts to answer the following questions:
-
-Which cities have the highest number of trips?
-Which cities generate the highest revenue?
-Which cities experience the highest average delay?
-Does weather affect trip delays?
-Are peak-hour trips associated with higher delays?
-Which bus types have the highest occupancy?
-Does route distance have a relationship with revenue?
-Is customer satisfaction related to trip delays?
-Which payment modes are most popular?
-Which subscription types are most commonly used?
-Which booking channels generate the most revenue?
-What percentage of trips are completed, delayed, cancelled, or no-show?
-Which routes have the highest occupancy?
-Which customer age groups form the largest customer segment?
-What operational improvements can be made using the available data?
-📊 Dataset
+# 🔄 Project Workflow
 
-The dataset contains information related to bus trips, customers, routes, buses, revenue, bookings, payments, weather, occupancy, delays, and customer experience.
-
-Main Data Categories
-Category	Example Fields
-Trip Information	trip_id, trip_date, trip_status
-Route Information	route_id, route_name, distance_km
-Customer Information	customer_id, age, gender, rating
-Bus Information	bus_type
-Operations	delay_minutes, occupancy_pct, is_peak_hour
-Financial	fare_inr, discount_inr, net_revenue_inr
-Booking	booking_mode, payment_mode
-Subscription	subscription_type
-Weather	weather
-Customer Service	complaint_raised
-Cities Analysed
+**Raw Dataset**
 
-The project analyses the following metro-city markets:
+↓
 
-Mumbai
-Pune
-Bangalore
-Chennai
-Hyderabad
-Delhi NCR
-🔄 Project Workflow
+**Data Inspection**
 
-The complete project follows a structured data analytics workflow.
+↓
 
-1. Data Inspection
+**Data Cleaning & Preparation**
 
-The raw dataset was inspected to understand its structure, quality, and characteristics.
+↓
 
-2. Data Cleaning
+**Feature Engineering**
 
-Data-quality issues such as missing values, duplicates, inconsistent categories, and incorrect data types were addressed.
+↓
 
-3. Data Preparation
+**Exploratory Data Analysis**
 
-The cleaned data was transformed into a suitable format for analysis.
+↓
 
-4. Feature Engineering
+**Statistical Analysis**
 
-New business-related features and metrics were created.
+↓
 
-5. Exploratory Data Analysis
+**Business Analysis**
 
-Statistical analysis and visualisations were used to identify patterns and trends.
+↓
 
-6. Statistical Analysis
+**Power BI Dashboard**
 
-Statistical tests were applied to validate selected relationships.
+↓
 
-7. Power BI Dashboard
+**Business Insights & Recommendations**
 
-The analytical results were converted into an interactive Power BI dashboard.
+---
 
-8. Business Insights
+# 📂 Dataset
 
-The results were interpreted from a business perspective.
+The dataset contains trip-level information related to CityFlo bus services.
 
-9. Recommendations
+### Important Columns
 
-Actionable recommendations were developed based on the findings.
+- Trip ID
+- Customer ID
+- Route ID
+- Trip Date
+- City
+- Age
+- Gender
+- Bus Type
+- Payment Mode
+- Booking Mode
+- Subscription Type
+- Weather
+- Trip Status
+- Delay Minutes
+- Occupancy Percentage
+- Distance
+- Fare
+- Discount
+- Net Revenue
+- Customer Rating
+- Complaint Status
 
-🔍 Data Inspection
+The dataset is used to analyze operational performance, customer behavior, and financial performance.
 
-The first stage of the project involved inspecting the raw dataset.
+> **Note:** The dataset is intended for data-analysis and dashboarding practice and should not be considered actual confidential CityFlo operational data.
 
-The following checks were performed:
+---
 
-Dataset shape
-Number of rows and columns
-Data types
-Missing values
-Duplicate records
-Unique values
-Numerical variables
-Categorical variables
-Date columns
-Invalid values
-Outliers
-Data inconsistencies
+# 🧹 Data Cleaning & Preparation
 
-The purpose of this step was to understand the quality and structure of the data before performing further analysis.
+Before performing analysis, the dataset was inspected and cleaned to improve data quality and consistency.
 
-🧹 Data Cleaning and Preparation
+### Data Cleaning Activities
 
-The dataset was cleaned and prepared before analysis.
+- Checked the structure of the dataset
+- Identified duplicate records
+- Handled missing values
+- Checked invalid values
+- Standardized categorical values
+- Removed unwanted spaces
+- Converted columns into appropriate data types
+- Formatted date and time columns
+- Validated numerical columns
+- Checked inconsistent values
+- Identified and handled outliers
+- Prepared the cleaned dataset for analysis
 
-The following activities were performed:
+### Missing Value Handling
 
-Removed duplicate records
-Identified and handled missing values
-Standardised categorical values
-Removed unnecessary spaces
-Converted columns to appropriate data types
-Converted date columns into proper date format
-Standardised Boolean values
-Checked customer age values
-Checked occupancy percentages
-Validated fare values
-Validated trip IDs
-Validated customer IDs
-Checked inconsistent categories
-Reviewed potential outliers
+Different approaches were used depending on the column and business meaning.
 
-The objective was to create a clean, consistent, and analysis-ready dataset.
+Examples include:
 
-🧮 Feature Engineering
+- Missing `age` values were handled using appropriate statistical imputation.
+- Missing `discount_inr` values were treated as `0` where applicable.
+- Missing ratings were retained where the rating was not applicable, such as cancelled or no-show trips.
+- Missing occupancy values were handled using suitable imputation techniques.
 
-Additional features were created to make the analysis more meaningful.
+---
 
-Net Revenue
+# 🧮 Feature Engineering
 
-Net revenue was calculated using:
+Several new features were created to support deeper analysis.
 
-Net Revenue = Fare - Discount
+## Net Revenue
 
-This metric represents the revenue remaining after applying customer discounts.
+The net revenue was calculated as:
 
-Delayed Trip
+`Net Revenue = Fare - Discount`
 
-Trips were classified as delayed when the delay exceeded 5 minutes.
+This represents the revenue generated after applying discounts.
 
-Delayed Trip = Delay Minutes > 5
+---
 
-This classification was used to analyse operational reliability.
+## Delay Minutes
 
-Age Groups
+Delay was calculated using the difference between actual and scheduled departure time:
 
-Customers were grouped into meaningful age categories:
+`Delay Minutes = Actual Departure Time - Scheduled Departure Time`
 
-18–25
-26–35
-36–45
-46–60
-60+
+This metric is used to measure operational delays.
 
-This makes demographic analysis easier.
+---
 
-Date Features
+## Is Delayed
 
-The trip date was used to derive:
+Trips with delays greater than the defined threshold were classified as delayed.
 
-Year
-Month
-Weekday
-Monthly trends
+---
 
-These features were used for time-based analysis.
+## Trip Month
 
-📈 Exploratory Data Analysis
+The month was extracted from the trip date to analyze monthly revenue and trip trends.
 
-Exploratory Data Analysis was performed to understand patterns, distributions, relationships, and trends within the dataset.
+---
 
-Univariate Analysis
+## Trip Weekday
 
-The following visualisations were used:
+The weekday was extracted from the trip date to understand day-wise travel patterns.
 
-Histograms
-Bar charts
-Pie charts
-Donut charts
-Box plots
-Summary statistics
+---
 
-Variables analysed include:
+## Age Group
 
-Age
-Fare
-Revenue
-Delay
-Occupancy
-Rating
-Distance
-Bivariate Analysis
+Customers were categorized into different age groups:
 
-The following relationships were analysed:
+- 18–25
+- 26–35
+- 36–45
+- 46–60
+- 60+
 
-Distance vs Fare
-Distance vs Net Revenue
-Delay vs Weather
-Delay vs City
-Occupancy vs Bus Type
-Rating vs Delay
-Revenue vs City
-Occupancy vs Route
-Multivariate Analysis
+---
 
-The analysis also included:
+# 📊 Power BI Dashboard
 
-Correlation analysis
-Correlation heatmaps
-Grouped comparisons
-Time-series analysis
-City-level comparisons
-Route-level comparisons
-Customer segmentation
-🧪 Statistical Analysis
+The project contains **four major Power BI dashboards**, each focusing on a different aspect of CityFlo's business performance.
 
-Statistical tests were performed to validate selected relationships identified during exploratory analysis.
+---
 
-Pearson Correlation
+# 1️⃣ Dashboard 1 – CityFlo Executive Overview
 
-Pearson correlation was used to analyse the relationship between:
+## 🎯 Purpose
 
-Distance ↔ Fare
+The **CityFlo Executive Overview Dashboard** provides a high-level summary of overall trip, customer, route, and revenue performance.
 
-The objective was to determine whether route distance has a linear relationship with fare.
+It is designed for management and business stakeholders who need a quick overview of the company's performance.
 
-Independent Samples t-test
+---
 
-An independent samples t-test was used to compare:
+## 📌 KPI Cards
 
-Peak-hour Delay ↔ Non-peak-hour Delay
+The dashboard contains the following KPI cards:
 
-The objective was to determine whether average delays differ between peak and non-peak periods.
+- **Trip ID** – Total number of trips
+- **Customer ID** – Total customer count
+- **Age** – Age-related customer metric
+- **Route ID** – Number of routes
+- **Trip Date** – Trip-date metric
+- **Total Net Revenue** – Total revenue after discounts
 
-One-way ANOVA
+---
 
-One-way ANOVA was used to compare average fares across different bus types.
+## 📊 Dashboard Visualizations
 
-The objective was to determine whether there are statistically significant differences in average fare between bus categories.
+### 🏙️ Trips by City
 
-Chi-square Test
+A column chart showing the number of trips across different cities:
 
-A Chi-square test was used to analyse the relationship between:
+- Mumbai
+- Pune
+- Delhi NCR
+- Bangalore
+- Chennai
+- Hyderabad
 
-City ↔ Trip Status
+### Business Purpose
 
-The objective was to determine whether trip status is associated with the city.
+This visualization helps identify cities with higher trip demand and compare operational activity across different markets.
 
-📊 Power BI Dashboard
+---
 
-The final analytical results were transformed into an interactive Power BI Dashboard.
+### 💰 Revenue by City
 
-The dashboard consists of four pages, with each page focusing on a different business area.
-
-Dashboard Structure
-Dashboard	Main Focus
-Dashboard 1	City and Revenue Overview
-Dashboard 2	Operations and Capacity
-Dashboard 3	Delay, Rating and Route Performance
-Dashboard 4	Customer and Booking Behaviour
-
-The dashboard allows users to interact with the data using multiple filters.
-
-Dashboard Filters
-
-The available filters include:
-
-Gender
-Bus Type
-Payment Mode
-Days
-City
-Weather
-Age Group
-Booking Mode
-
-These filters allow users to dynamically analyse different customer segments, cities, bus types, weather conditions, and booking behaviours.
-
-📈 Dashboard 1 – City and Revenue Overview
-Purpose
-
-The first dashboard provides an executive-level overview of overall business performance.
-
-It focuses on:
-
-Trips
-Customers
-Routes
-Revenue
-City performance
-Trip status
-Monthly revenue
-Customer demographics
-KPI Cards
-
-The dashboard provides important business KPIs such as:
-
-Trip ID
-Customer ID
-Age
-Route ID
-Trip Date
-Total Net Revenue
-
-These KPIs provide a quick overview of the business.
-
-Trips by City
-
-The city-wise trip chart compares trip volume across different metro cities.
-
-This helps identify:
-
-High-demand cities
-Low-demand markets
-Cities with high operational activity
-Markets that may require additional fleet capacity
-
-The dashboard shows strong trip activity in cities such as Mumbai and Pune.
-
-Revenue by City
-
-The revenue table compares the net revenue generated by different cities.
-
-The displayed ranking is:
-
-Rank	City
-1	Mumbai
-2	Pune
-3	Bangalore
-4	Chennai
-5	Hyderabad
-6	Delhi NCR
-
-This helps identify the strongest revenue-generating markets.
-
-Trip Status Distribution
-
-The trip-status chart shows the distribution of:
-
-Completed
-Delayed-Completed
-Cancelled
-No-show
-
-The dashboard displays approximately:
-
-Trip Status	Percentage
-Completed	66%
-Delayed-Completed	12%
-Cancelled	11.7%
-No-show	10.4%
-
-This provides an overview of service reliability.
-
-Monthly Revenue Trend
-
-The monthly revenue chart shows how revenue changes over time.
-
-It helps identify:
-
-Revenue peaks
-Revenue declines
-Seasonal patterns
-Changes in demand
-
-This can support revenue planning and forecasting.
-
-Customer Gender Distribution
-
-The gender distribution chart provides an overview of the customer base.
-
-The displayed dashboard shows approximately:
-
-Female – 50.8%
-Male – 44.7%
-Other – Remaining percentage
-
-This can support customer segmentation and targeted marketing.
-
-⏱️ Dashboard 2 – Operations and Capacity
-Purpose
-
-The second dashboard focuses on operational efficiency and capacity utilisation.
-
-It analyses:
-
-Average delay
-Occupancy
-Peak-hour trips
-Weather
-City-level delays
-Bus-type utilisation
-KPI Cards
+A ranked table showing the net revenue generated by each city.
 
 The dashboard displays:
 
-Average Delay
-Occupancy Rate
-Number of Cities
-Number of Age Groups
-Number of Weather Categories
-Number of Bus Types
+1. Mumbai
+2. Pune
+3. Bangalore
+4. Chennai
+5. Hyderabad
+6. Delhi NCR
 
-The displayed dashboard shows approximately:
+### Business Insight
 
-Average Delay: 61 minutes
+Mumbai is the highest revenue-generating city in the displayed dashboard.
 
-Occupancy Rate: 58%
+This analysis can help management identify strong-performing markets and prioritize business investment.
 
-Customer Age Distribution
+---
 
-The treemap displays the distribution of customers across different ages.
+### 🥧 Trip Status Distribution
 
-This provides a visual understanding of the demographic structure of the customer base.
+A pie chart showing the distribution of different trip statuses:
 
-Peak Hour Trip Distribution
+- Completed
+- Delayed-Completed
+- Cancelled
+- No-show
 
-The dashboard compares peak and non-peak trips.
+### Business Insight
 
-The displayed distribution is approximately:
+Completed trips form the largest portion of total trips.
 
-Non-Peak – 60.1%
-Peak – 39.9%
+Cancelled and no-show trips represent potential opportunities for improving operational efficiency and reducing revenue loss.
 
-This provides an understanding of customer travel behaviour throughout the day.
+---
 
-Average Delay by City
+### 📈 Monthly Revenue Trend
 
-The dashboard compares average delay across cities.
+A line chart showing how net revenue changes throughout the year.
 
-The displayed analysis shows Delhi NCR with the highest average delay.
+### Business Purpose
 
-This indicates that Delhi NCR may require additional operational attention.
+This visualization helps identify:
 
-Potential improvement areas include:
+- High-revenue months
+- Low-revenue months
+- Revenue fluctuations
+- Seasonal patterns
 
-Better scheduling
-Traffic-aware planning
-Route optimisation
-Peak-hour management
-Operational buffers
-Average Delay by Weather
+This information can support revenue forecasting and business planning.
 
-The dashboard compares average delays under different weather conditions:
+---
 
-Heavy Rain
-Fog
-Haze
-Rain
-Clear
-Cloudy
+### 👥 Customer Gender Distribution
 
-The analysis indicates that adverse weather conditions can be associated with higher delays, particularly heavy rain.
+A donut chart showing customer distribution by:
 
-This suggests that weather conditions should be considered in operational planning.
+- Female
+- Male
+- Other
 
-Average Occupancy by Bus Type
+### Business Purpose
 
-The dashboard compares occupancy across:
+This visualization provides an overview of customer gender composition and can support customer segmentation and targeted marketing.
 
-AC Sleeper
-Non-AC Seater
-AC Seater
-Premium AC
+---
 
-This helps identify how efficiently different bus types are being utilised.
+## 🎛️ Interactive Filters
 
-The information can support better fleet allocation.
+The dashboard provides filters for:
 
-📉 Dashboard 3 – Delay, Rating and Route Performance
-Purpose
+- Gender
+- Bus Type
+- Payment Mode
+- Days
+- City
+- Weather
+- Age Group
+- Booking Mode
 
-The third dashboard connects operational performance with customer satisfaction and route economics.
+These filters allow users to analyze specific customer and operational segments.
 
-It focuses on:
+---
 
-Delay
-Customer rating
-Revenue
-Distance
-Occupancy
-Route performance
-KPI Cards
+# 2️⃣ Dashboard 2 – Operations & Delay Analysis
 
-The dashboard includes:
+## 🎯 Purpose
 
-Total Trips
-Average Delay
-Customer Rating
-Occupancy Rate
-Total Revenue
-Route Count
+The **Operations & Delay Analysis Dashboard** focuses on operational performance, delays, weather conditions, peak-hour activity, customer age distribution, and bus occupancy.
 
-These KPIs provide a summary of overall service and route performance.
+It helps identify factors that may influence service reliability.
 
-Delay and Customer Rating Over Time
+---
 
-The time-series chart compares delay and customer rating over time.
+## 📌 KPI Cards
 
-This helps investigate whether periods of increased delays are associated with changes in customer satisfaction.
+The dashboard contains:
 
-A possible relationship can be represented as:
+- **Delay Mins**
+- **Occupancy Rate**
+- **City**
+- **Age Group**
+- **Weather**
+- **Bus Type**
 
-Higher Delay
-     ↓
-Poorer Service Experience
-     ↓
-Potentially Lower Customer Rating
+---
 
-This relationship can be further investigated using statistical analysis.
+## 📊 Dashboard Visualizations
 
-Distance vs Net Revenue
+### 👤 Customer Age Distribution
 
-The scatter plot compares:
+A treemap showing customers distributed across different ages.
 
-Distance (KM)
-      ↕
-Net Revenue (INR)
+### Business Purpose
 
-The displayed analysis indicates a positive relationship between distance and net revenue.
+This visualization helps understand the age profile of CityFlo customers and provides detailed demographic information.
 
-This suggests that longer routes generally generate higher revenue.
+---
 
-This information can support:
+### 🕐 Peak Hour Trip Distribution
 
-Fare planning
-Route economics
-Revenue forecasting
-Route expansion decisions
-Occupancy by Route
+A donut chart comparing:
 
-The route-level chart compares occupancy across different routes.
+- Peak-hour trips
+- Non-peak-hour trips
 
-It helps identify:
+### Business Purpose
 
-High-demand routes
-Low-demand routes
-Capacity imbalance
-Routes requiring additional frequency
+This visualization helps identify how much demand occurs during peak operating hours.
 
-This can support fleet allocation and route planning.
+It can support:
 
-👥 Dashboard 4 – Customer and Booking Behaviour
-Purpose
+- Fleet planning
+- Driver allocation
+- Schedule optimization
+- Capacity management
 
-The fourth dashboard focuses on customer behaviour, booking patterns, payments, subscriptions, complaints, and customer satisfaction.
+---
 
-It answers:
+### 🏙️ Average Delay by City
 
-Who are the customers, how do they use the service, and which channels contribute most to revenue?
+A bar chart comparing average delay minutes across cities:
 
-Customer Rating Distribution
+- Delhi NCR
+- Hyderabad
+- Chennai
+- Pune
+- Bangalore
+- Mumbai
 
-The rating chart shows the distribution of customer ratings from 1 to 5.
+### Business Insight
 
-The displayed dashboard shows a higher concentration of ratings at 4 and 5.
+Delhi NCR records the highest average delay among the displayed cities, while Mumbai records the lowest.
 
-This indicates generally positive customer feedback.
+### Business Purpose
 
-Lower-rated trips can be investigated to understand the reasons for customer dissatisfaction.
+This analysis can help operations teams identify cities where punctuality and route efficiency need improvement.
 
-Customer Age Group Distribution
+---
 
-Customers are grouped into:
+### 🌧️ Average Delay by Weather
 
-18–25
-26–35
-36–45
-46–60
+A line chart showing average delay under different weather conditions:
 
-The displayed dashboard shows the 26–35 age group as the largest customer segment.
+- Heavy Rain
+- Fog
+- Haze
+- Rain
+- Clear
+- Cloudy
 
-This information can support:
+### Business Insight
 
-Customer segmentation
-Marketing campaigns
-Subscription planning
-Loyalty programmes
-Customers by Subscription Type
+Heavy rain shows the highest average delay in the dashboard.
 
-The dashboard compares:
+This indicates that adverse weather conditions can have a significant impact on service punctuality.
 
-Corporate Plan
-Monthly Pass
-Single Ride
-Weekly Pass
-
-This helps identify recurring customers and occasional users.
+### Business Purpose
 
 The analysis can support:
 
-Customer retention
-Subscription conversion
-Loyalty programmes
-Targeted offers
-Payment Mode Distribution
+- Weather-based contingency planning
+- Schedule adjustments
+- Additional fleet planning
+- Route-level risk management
 
-The dashboard compares:
+---
 
-UPI
-Wallet
-Debit Card
-Cash
-Net Banking
-Credit Card
+### 🚌 Average Occupancy by Bus Type
 
-The displayed dashboard shows strong usage of UPI and Wallet.
+A horizontal bar chart comparing occupancy across:
 
-This highlights the importance of providing a smooth and reliable digital payment experience.
+- AC Sleeper
+- Non-AC Seater
+- AC Seater
+- Premium AC
 
-Complaint Status Distribution
+### Business Insight
 
-The dashboard compares trips:
+AC Sleeper shows the highest average occupancy among the displayed bus types.
 
-With complaints
-Without complaints
+### Business Purpose
 
-Complaint data can be analysed together with:
+This analysis can help with:
 
-Delay
-City
-Route
-Bus type
-Weather
-Customer rating
+- Fleet allocation
+- Capacity planning
+- Bus-type optimization
+- Route assignment
 
-This can help identify potential causes of customer dissatisfaction.
+---
 
-Revenue by Booking Channel
+# 3️⃣ Dashboard 3 – Route, Revenue & Customer Experience Analysis
 
-The dashboard compares revenue generated through:
+## 🎯 Purpose
 
-Website
-Corporate Portal
-Mobile App
-Kiosk
+The **Route, Revenue & Customer Experience Dashboard** combines operational data with customer experience and financial performance.
 
-The displayed dashboard shows the Website as the dominant booking channel.
+It focuses on:
 
-This indicates that website performance is an important part of the customer booking journey.
+- Delays
+- Customer ratings
+- Route distance
+- Revenue
+- Occupancy
+- Route performance
 
-💡 Key Business Insights
-1. City Performance
+---
 
-Mumbai and Pune are among the strongest revenue-generating cities in the displayed dashboard.
+## 📌 KPI Cards
 
-These markets represent important contributors to overall business performance.
+The dashboard contains:
 
-2. Distance and Revenue
+- **Trip ID**
+- **Delay Mins**
+- **Rating**
+- **Occupancy Rate**
+- **Total Revenue**
+- **Route ID**
 
-The Distance vs Net Revenue analysis indicates a positive relationship between route distance and revenue.
+---
 
-Longer routes generally tend to generate higher revenue.
+## 📊 Dashboard Visualizations
 
-3. Weather and Delays
+### 📉 Delay & Customer Rating Over Time
 
-Adverse weather conditions, particularly heavy rain, are associated with higher average delays.
+A combined time-series chart displaying:
 
-Weather-aware operational planning could therefore improve service reliability.
+- Delay minutes
+- Customer rating
 
-4. Delhi NCR Delay Performance
+over the trip date.
 
-Delhi NCR shows the highest displayed average delay.
+### Business Purpose
 
-This indicates a potential opportunity for targeted operational improvements.
+This visualization helps investigate whether operational delays are associated with changes in customer satisfaction.
 
-5. Occupancy
+It can be used to monitor service quality over time.
 
-The displayed overall occupancy rate is approximately 58%.
+---
 
-This suggests that there may be opportunities to improve fleet utilisation through better demand forecasting and scheduling.
+### 📍 Distance vs Net Revenue
 
-6. Customer Satisfaction
+A scatter plot comparing:
 
-Ratings of 4 and 5 represent a substantial portion of customer feedback.
+- Distance in kilometres
+- Net revenue in INR
 
-Maintaining reliable service and reducing delays can help maintain customer satisfaction.
+### Business Insight
 
-7. Digital Payment Behaviour
+The dashboard shows a strong positive relationship between distance and net revenue.
 
-UPI and Wallet are among the commonly used payment methods.
+In general, longer routes tend to generate higher net revenue.
 
-This highlights the importance of maintaining reliable digital payment infrastructure.
+### Business Purpose
 
-8. Booking Channel Performance
+This relationship can support:
 
-The Website is the dominant booking channel in the displayed revenue analysis.
+- Pricing decisions
+- Route planning
+- Revenue forecasting
+- Route profitability analysis
 
-Improving website usability and booking conversion could therefore support revenue growth.
+---
 
-🚀 Business Recommendations
-Operational Efficiency
-Focus on high-delay cities and routes.
-Introduce weather-aware scheduling.
-Add operational buffers during adverse weather.
-Analyse peak-hour congestion.
-Monitor route-level delays.
-Improve route planning.
-Use historical delay patterns for scheduling.
-Fleet Optimisation
-Monitor occupancy by route.
-Increase frequency on high-demand routes.
-Optimise under-utilised routes.
-Match bus types with customer demand.
-Use historical demand for fleet allocation.
-Customer Experience
-Investigate low-rated trips.
-Analyse complaints against delays.
-Provide proactive delay notifications.
-Monitor customer ratings continuously.
-Identify recurring service-quality issues.
-Revenue Improvement
-Analyse revenue per kilometre.
-Compare city-level revenue.
-Analyse fare by bus type.
-Optimise pricing by route.
-Promote recurring subscription plans.
-Identify high-value customer segments.
-Digital Strategy
-Improve website booking experience.
-Maintain reliable UPI and wallet payments.
-Analyse booking-channel performance.
-Encourage repeat bookings.
-Promote subscription plans.
-🛠️ Technologies Used
-Technology	Purpose
-Python	Data analysis and processing
-Pandas	Data cleaning and manipulation
-NumPy	Numerical computation
-Matplotlib	Data visualisation
-Seaborn	Statistical visualisation
-SciPy	Statistical analysis
-Jupyter Notebook	Data analysis and documentation
-Power BI	Interactive dashboard development
-Google Sheets	Dataset management
-Kaggle	Notebook hosting
-GitHub	Version control and project hosting
-📁 Repository Structure
-Cityflow-Bus-Service-Metro-Cities/
-│
-├── Dashboard/
-│   ├── Dashboard_1.png
-│   ├── Dashboard_2.png
-│   ├── Dashboard_3.png
-│   └── Dashboard_4.png
-│
-├── Cityflo_Data_Inspect.ipynb
-├── Cityflo_Data_Clean_&_Prepare_.ipynb
-├── Cityflo_Data_Analyze.ipynb
-├── Cityflo_Data_Report.ipynb
-│
-├── cityflo_bus_service_metro_cities.csv
-├── cityflo_bus_service_metro_cities_cleaned.csv
-│
-└── README.md
-📓 Notebook Description
-Cityflo_Data_Inspect.ipynb
+### 🛣️ Occupancy by Route
 
-This notebook focuses on understanding the raw dataset.
+A line chart showing occupancy percentage across different routes.
 
-It includes:
+### Business Purpose
 
-Dataset shape
-Data types
-Missing-value analysis
-Duplicate detection
-Unique-value analysis
-Initial data understanding
-Cityflo_Data_Clean_&_Prepare_.ipynb
+This visualization helps identify routes with:
 
-This notebook focuses on cleaning and preparing the dataset.
+- High passenger utilization
+- Low passenger utilization
+- Demand fluctuations
 
-It includes:
+Routes with consistently high occupancy may require additional capacity, while low-occupancy routes may require schedule or route optimization.
 
-Missing-value handling
-Duplicate removal
-Data-type conversion
-Category standardisation
-Data transformation
-Feature preparation
-Cityflo_Data_Analyze.ipynb
+---
 
-This notebook contains the main analytical work.
+# 4️⃣ Dashboard 4 – Customer, Subscription & Booking Analysis
 
-It includes:
+## 🎯 Purpose
 
-Exploratory Data Analysis
-Data visualisation
-Statistical summaries
-Correlation analysis
-Statistical testing
-Business analysis
-Cityflo_Data_Report.ipynb
+The **Customer, Subscription & Booking Analysis Dashboard** focuses on customer behavior and preferences.
 
-This notebook presents the final analytical findings.
+It provides insights into:
 
-It includes:
+- Customer ratings
+- Age groups
+- Subscription plans
+- Payment methods
+- Complaints
+- Booking channels
 
-Important KPIs
-Major findings
-Business insights
-Recommendations
-Final analysis
-▶️ How to Run the Project
-Step 1 – Clone the Repository
-git clone https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities.git
-Step 2 – Navigate to the Project
-cd Cityflow-Bus-Service-Metro-Cities
-Step 3 – Install Required Libraries
-pip install pandas numpy matplotlib seaborn scipy jupyter
-Step 4 – Start Jupyter Notebook
-jupyter notebook
-Step 5 – Run the Notebooks
+---
+
+## 📌 KPI Cards
+
+The dashboard displays:
+
+- **Trip ID**
+- **Rating**
+- **Customer ID**
+- **Subscription Type**
+
+---
+
+## 📊 Dashboard Visualizations
+
+### ⭐ Customer Rating Distribution
+
+A bar chart showing the distribution of customer ratings:
+
+- 1 Star
+- 2 Stars
+- 3 Stars
+- 4 Stars
+- 5 Stars
+
+### Business Insight
+
+The dashboard shows a significant concentration of higher customer ratings, particularly 5-star ratings.
+
+This indicates generally positive customer feedback within the analyzed dataset.
+
+---
+
+### 👥 Customer Age Group Distribution
+
+A donut chart showing customer distribution across:
+
+- 18–25
+- 26–35
+- 36–45
+- 46–60
+
+### Business Insight
+
+The 26–35 age group represents the largest displayed customer segment.
+
+### Business Purpose
+
+This information can be used for:
+
+- Targeted marketing
+- Customer segmentation
+- Subscription campaigns
+- Personalized offers
+
+---
+
+### 💳 Customers by Subscription Type
+
+A chart showing customer distribution across:
+
+- Corporate Plan
+- Monthly Pass
+- Single Ride
+- Weekly Pass
+
+### Business Purpose
+
+This visualization helps identify popular subscription models and understand recurring versus one-time customers.
+
+---
+
+### 💰 Payment Mode Distribution
+
+A horizontal bar chart showing usage of:
+
+- UPI
+- Wallet
+- Debit Card
+- Cash
+- Net Banking
+- Credit Card
+
+### Business Insight
+
+UPI and other digital payment methods represent a major portion of payment activity.
+
+### Business Purpose
+
+This highlights the importance of maintaining a convenient and reliable digital payment experience.
+
+---
+
+### 📢 Complaint Status Distribution
+
+A bar chart showing:
+
+- Complaint = False
+- Complaint = True
+
+### Business Insight
+
+The majority of recorded trips do not have a complaint.
+
+However, complaint cases should still be monitored to identify recurring service issues.
+
+---
+
+### 🔻 Revenue by Booking Channel
+
+A funnel chart comparing revenue across:
+
+- Website
+- Corporate Portal
+- Mobile App
+- Kiosk
+
+### Business Purpose
+
+This visualization helps compare the relative contribution of different booking channels and supports decisions around digital booking strategy.
+
+---
+
+# 🔍 Key Business Insights
+
+Based on the dashboard analysis, the following insights were identified:
+
+### 1. Mumbai is a Strong Revenue Market
+
+Mumbai generates the highest net revenue among the displayed cities.
+
+### 2. Trip Completion is Dominant
+
+Completed trips account for the largest proportion of trip statuses.
+
+### 3. Delhi NCR Has Higher Delays
+
+Delhi NCR records the highest average delay among the cities shown in the dashboard.
+
+### 4. Weather Influences Delays
+
+Heavy rain shows the highest average delay compared with the other weather conditions.
+
+### 5. AC Sleeper Has High Occupancy
+
+AC Sleeper has the highest average occupancy among the displayed bus types.
+
+### 6. Distance is Positively Related to Revenue
+
+Longer routes generally generate higher net revenue.
+
+### 7. 26–35 is a Major Customer Segment
+
+The 26–35 age group represents the largest displayed age-group segment.
+
+### 8. Higher Ratings are Common
+
+The rating distribution shows a significant concentration of higher customer ratings.
+
+### 9. Digital Payments are Important
+
+UPI and other digital payment methods represent a large share of payment activity.
+
+### 10. Most Trips Have No Complaint
+
+The majority of recorded trips do not have a complaint associated with them.
+
+---
+
+# 📈 Exploratory Data Analysis
+
+The project includes detailed exploratory data analysis using Python.
+
+## Univariate Analysis
+
+The following techniques were used:
+
+- Histograms
+- Bar charts
+- Pie charts
+- Box plots
+- Mean
+- Median
+- Mode
+- Standard deviation
+- Skewness
+- Kurtosis
+
+## Bivariate Analysis
+
+The following techniques were used:
+
+- Scatter plots
+- Correlation analysis
+- Grouped analysis
+- Cross-tabulation
+- Box plots
+- Comparative visualizations
+
+## Multivariate Analysis
+
+The project also includes:
+
+- Correlation heatmaps
+- Pair plots
+- Multi-variable comparisons
+- City-level analysis
+- Delay analysis
+- Revenue analysis
+
+---
+
+# 🧪 Statistical Analysis
+
+Statistical techniques were used to validate relationships identified during exploratory analysis.
+
+## Pearson Correlation
+
+Used to study relationships between numerical variables such as:
+
+- Distance
+- Fare
+
+---
+
+## Independent Samples T-Test
+
+Used to compare delay behavior between:
+
+- Peak-hour trips
+- Non-peak-hour trips
+
+---
+
+## One-Way ANOVA
+
+Used to determine whether average fares differ significantly between different bus types.
+
+---
+
+## Chi-Square Test
+
+Used to examine relationships between categorical variables such as:
+
+- City
+- Trip Status
+
+---
+
+# 💡 Business Recommendations
+
+Based on the analysis, the following recommendations can be considered:
+
+### 1. Improve High-Delay Cities
+
+Operational teams should investigate traffic, route planning, scheduling, and fleet allocation in cities with higher average delays.
+
+### 2. Develop Weather-Based Planning
+
+Heavy rain and other adverse weather conditions should be considered when planning schedules and allocating buses.
+
+### 3. Optimize Bus Allocation
+
+Bus capacity should be adjusted based on route-level occupancy.
+
+### 4. Reduce Cancelled and No-Show Trips
+
+The company can investigate the causes of cancellations and no-shows to improve seat utilization and revenue.
+
+### 5. Monitor Customer Satisfaction
+
+Customer ratings should be monitored together with delays to identify potential service-quality issues.
+
+### 6. Strengthen Digital Payment Options
+
+Digital payment methods should remain reliable and user-friendly because of their high usage.
+
+### 7. Improve Subscription Strategies
+
+Customer age groups and subscription preferences can be used to create targeted subscription offers.
+
+### 8. Optimize Booking Channels
+
+Revenue contribution from different booking channels can be used to prioritize investments in high-performing digital platforms.
+
+### 9. Analyze Route Profitability
+
+Distance, occupancy, and revenue should be analyzed together when making route-planning decisions.
+
+---
+
+# 📁 Project Structure
+
+    Cityflow-Bus-Service-Metro-Cities/
+    │
+    ├── Dashboard/
+    │   ├── Dashboard_1.png
+    │   ├── Dashboard_2.png
+    │   ├── Dashboard_3.png
+    │   └── Dashboard_4.png
+    │
+    ├── Cityflo_Data_Inspect.ipynb
+    ├── Cityflo_Data_Clean_&_Prepare_.ipynb
+    ├── Cityflo_Data_Analyze.ipynb
+    ├── Cityflo_Data_Report.ipynb
+    │
+    ├── cityflo_bus_service_metro_cities.csv
+    ├── cityflo_bus_service_metro_cities_cleaned.csv
+    │
+    └── README.md
+
+---
+
+# ▶️ How to Run the Project
+
+## Step 1 – Clone the Repository
+
+    git clone https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities.git
+
+## Step 2 – Navigate to the Project Directory
+
+    cd Cityflow-Bus-Service-Metro-Cities
+
+## Step 3 – Install Required Libraries
+
+    pip install pandas numpy matplotlib seaborn scipy jupyter
+
+## Step 4 – Start Jupyter Notebook
+
+    jupyter notebook
+
+## Step 5 – Run the Notebooks
 
 Run the notebooks in the following order:
 
-1. Cityflo_Data_Inspect.ipynb
-2. Cityflo_Data_Clean_&_Prepare_.ipynb
-3. Cityflo_Data_Analyze.ipynb
-4. Cityflo_Data_Report.ipynb
-🔗 Project Resources
-GitHub Repository
+    1. Cityflo_Data_Inspect.ipynb
+           ↓
+    2. Cityflo_Data_Clean_&_Prepare_.ipynb
+           ↓
+    3. Cityflo_Data_Analyze.ipynb
+           ↓
+    4. Cityflo_Data_Report.ipynb
 
-https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities
+---
 
-Kaggle Notebook
+# 📚 Project Resources
 
-https://www.kaggle.com/code/anwesapanja/cityflo-data-analysis
-
-Google Sheets Dataset
+## 📊 Dataset / Google Spreadsheet
 
 https://docs.google.com/spreadsheets/d/1lvvWRxPfKCT4T3xvIqXpyCBdnCnL86It0-TIU80xqVE/edit?gid=1723667175#gid=1723667175
 
-🔮 Future Scope
+## 📓 Kaggle Notebook
 
-The project can be further enhanced using advanced analytics and machine learning.
+https://www.kaggle.com/code/anwesapanja/cityflo-data-analysis
 
-Possible future improvements include:
+## 💻 GitHub Repository
 
-Demand forecasting
-Revenue forecasting
-Machine-learning-based delay prediction
-Customer segmentation
-Customer churn prediction
-Customer lifetime value analysis
-Route optimisation
-Dynamic fleet allocation
-Geographic route analysis
-Dynamic pricing
-Weather-based demand forecasting
-Real-time operational monitoring
-Customer satisfaction prediction
-Demand-based scheduling
-⚠️ Limitations
+https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities
 
-The project has the following limitations:
+---
 
-The dataset is synthetic.
-The results should not be interpreted as actual CityFlo business performance.
-Correlation does not imply causation.
-Dashboard values change depending on the selected filters.
-Statistical conclusions are specific to the available dataset.
-Geographic analysis is limited by the available location information.
-Business recommendations are based on patterns observed within the dataset.
-Real-world operational decisions would require additional information such as traffic conditions, fuel costs, fleet availability, real-time weather, and operational costs.
-🏁 Conclusion
+# 📌 Conclusion
 
-The CityFlo Bus Service – Metro Cities Data Analysis project demonstrates a complete end-to-end Data Analytics and Business Intelligence workflow.
+The **CityFlo Bus Service – Metro Cities Data Analysis** project demonstrates a complete end-to-end data analytics workflow, starting from raw data and ending with an interactive Business Intelligence dashboard.
 
-The project transforms raw transportation data into meaningful business insights through:
+The project combines:
 
-Data Inspection
-      ↓
-Data Cleaning
-      ↓
-Data Preparation
-      ↓
-Feature Engineering
-      ↓
-Exploratory Data Analysis
-      ↓
-Statistical Analysis
-      ↓
-Power BI Dashboard
-      ↓
-Business Insights
-      ↓
-Business Recommendations
+**Data Cleaning + Feature Engineering + Exploratory Data Analysis + Statistical Analysis + Business Analysis + Power BI Dashboard = Actionable Business Insights**
 
-The Power BI dashboard provides a comprehensive view of:
+The dashboards provide a comprehensive view of:
 
-🚌 Trip performance
-💰 Revenue
-🏙️ City performance
-⏱️ Delays
-🌦️ Weather impact
-🪑 Occupancy
-🛣️ Route performance
-⭐ Customer ratings
-👥 Customer demographics
-🎫 Subscription behaviour
-💳 Payment methods
-📢 Customer complaints
-📱 Booking channels
+- City performance
+- Revenue
+- Trip volume
+- Trip status
+- Delays
+- Weather impact
+- Occupancy
+- Route performance
+- Customer ratings
+- Customer demographics
+- Subscription types
+- Payment modes
+- Complaints
+- Booking channels
 
-The project demonstrates how raw transportation data can be transformed into actionable business intelligence to support better operational planning, fleet utilisation, revenue management, customer experience, and strategic decision-making.
+Overall, this project demonstrates how data analytics and visualization can be used to convert raw transportation data into meaningful insights that support:
 
-👤 Author
-Anwesa Panja
+- Operational planning
+- Revenue optimization
+- Customer experience improvement
+- Capacity planning
+- Route optimization
+- Business decision-making
 
-Data Analytics | Python | SQL | Power BI | Data Visualisation
+---
 
-⭐ Project
+# 👤 Author
 
-If you find this project useful, please consider giving the repository a ⭐ on GitHub.
+**Anwesa Panja**
+
+### Skills Demonstrated
+
+- Python
+- Pandas
+- NumPy
+- SQL
+- Data Cleaning
+- Exploratory Data Analysis
+- Statistical Analysis
+- Data Visualization
+- Power BI
+- Business Intelligence
+- Dashboard Development
+
+---
+
+# ⭐ Project Links
+
+### 📊 Dataset / Google Spreadsheet
+
+https://docs.google.com/spreadsheets/d/1lvvWRxPfKCT4T3xvIqXpyCBdnCnL86It0-TIU80xqVE/edit?gid=1723667175#gid=1723667175
+
+### 📓 Kaggle Notebook
+
+https://www.kaggle.com/code/anwesapanja/cityflo-data-analysis
+
+### 💻 GitHub Repository
+
+https://github.com/Anwesapanja/Cityflow-Bus-Service-Metro-Cities
