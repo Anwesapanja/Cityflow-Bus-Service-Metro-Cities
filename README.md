@@ -259,6 +259,10 @@ The dashboard contains the following KPI cards:
 
 ## 📊 Dashboard Visualizations
 
+# 3️⃣ Dashboard 1 – CityFlo Business Overview
+
+![CityFlo Executive Overview](Dashboard/Dashboard_1.png)
+
 ### 🏙️ Trips by City
 
 A column chart showing the number of trips across different cities:
@@ -363,6 +367,8 @@ These filters allow users to analyze specific customer and operational segments.
 ---
 
 # 2️⃣ Dashboard 2 – Operations & Delay Analysis
+
+![Operations & Delay Analysis](Dashboard/Dashboard_2.png)
 
 ## 🎯 Purpose
 
@@ -492,6 +498,9 @@ This analysis can help with:
 
 # 3️⃣ Dashboard 3 – Route, Revenue & Customer Experience Analysis
 
+![Route, Revenue & Customer Experience Analysis](Dashboard/Dashboard_3.png)
+
+
 ## 🎯 Purpose
 
 The **Route, Revenue & Customer Experience Dashboard** combines operational data with customer experience and financial performance.
@@ -580,6 +589,8 @@ Routes with consistently high occupancy may require additional capacity, while l
 ---
 
 # 4️⃣ Dashboard 4 – Customer, Subscription & Booking Analysis
+
+![Customer, Subscription & Booking Analysis](Dashboard/Dashboard_4.png)
 
 ## 🎯 Purpose
 
